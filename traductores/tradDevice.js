@@ -5,7 +5,7 @@ var res=[];
 const tradDevice = (data, device, id, address, quantity) =>{
     var traducido;
     if(device == 'powys3121'){
-        traducido= powys3121.tabla(data, address, quantity);
+        traducido= powys3121.get_basica(data);
         res = '{ "id":'+ id;
         res += ',"modelo":'+ '"'+device+'"';
         res += ',"voltajeF1_N":'+ traducido[0];
