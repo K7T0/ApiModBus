@@ -1,7 +1,7 @@
 module.exports = {
     host: 'localhost', 
-    user:'actinno', 
+    user:'administrador', 
     password: '@Ctinno.1',
-    database: "Mediciones",
+    database: "TEST",
     connectionLimit: 5   
 }

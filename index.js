@@ -20,7 +20,7 @@ const json= await ips.consulta_datas(process.argv[2]);
 for (var device of json.Consultas){
     var data=await modbusData.getData(json.ip_gateway, 0, 78, device.id, device.modelo);
     const JSONdata= JSON.parse(data);
-    // console.log('JSONdata: ', JSONdata);
+    save.crear_backup(JSONdata);
 
 }
 }
