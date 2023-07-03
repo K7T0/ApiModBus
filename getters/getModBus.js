@@ -7,7 +7,7 @@ const getData = (ip, address, quantity, unitId)=>{
     //genera promesa en espera a los datos
     return new Promise((resolve, reject)=>{
         //se conecta por modbus a la ip del gateway
-        modbus.tcp.connect(502, ip, {debug:'Actinno_Modbus'}, (err, connection) => {
+        modbus.tcp.connect(502, ip, {debug:'Actinno_Modbus', retries:1, retry:1000}, (err, connection) => {
             if(err){
                 console.log('error ModBus: ', err);
                 resolve(err)
