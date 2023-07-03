@@ -6,7 +6,7 @@ var res=[];
 const tradDevice = (data, device, id, address, quantity) =>{
     res = '{ "id":'+ id;
     res += ',"modelo":'+ '"'+device+'"';
-    res += ',"fecha":'+ '"'+util.fecha()+'"';
+    res += ',"fecha":'+ '"'+util.fechahora()+'"';
     var traducido;
     if(device == 'powys3121'){
         //info basica
@@ -16,7 +16,7 @@ const tradDevice = (data, device, id, address, quantity) =>{
             res += ',"voltajeF1_2":'+traducido[1];
             res += ',"corriente_F1":'+ traducido[2];
             res += ',"coseno_F1":'+ traducido[3];
-            res += ',"factor_potencia F1":'+ traducido[4];
+            res += ',"factor_potencia_F1":'+ traducido[4];
             res += ',"p_activa_F1":'+ traducido[5];
             res += ',"p_reactiva_F1":'+ traducido[6];
             res += ',"p_aparente_F1":'+ traducido[7];
