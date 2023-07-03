@@ -9,7 +9,8 @@ const pool=mariadb.createPool({
     connectionLimit: db.connectionLimit});
 
 const crear_backup = async (data)=>{
-    console.log('datos modelo: ',datos.modelo);
+    console.log('datos: ',data);
+    console.log('datos modelo: ',data.modelo);
 }
 
 module.exports={crear_backup};
