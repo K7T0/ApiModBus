@@ -53,7 +53,7 @@ const pool=mariadb.createPool({
     connectionLimit: db.connectionLimit});
 
 const crear_backup = async (data)=>{
-
+    return new Promise((resolve, reject) => {
     pool.getConnection()
       .then(conn => {
       
@@ -66,12 +66,6 @@ const crear_backup = async (data)=>{
             data.p_aparente_F1,data.p_aparente_F2,data.p_aparente_F3,
             data.frecuencia_sistema,null,data.voltaje_l_n,data.voltaje_l_l,data.corriente_total,
             data.p_activa_total,data.p_reactiva_total,data.p_aparente_total,data.fpotencia_sis,null,null,data.id])
-          .then((rows) => {
-       
-            console.log(rows); //[ {val: 1}, meta: ... ]
-            resolve(rows);
-            
-          })
           .then((res) => {
             console.log(res); // { affectedRows: 1, insertId: 1, warningStatus: 0 }
             conn.end();
@@ -84,7 +78,9 @@ const crear_backup = async (data)=>{
           
       }).catch(err => {
         //not connected
+        console.log('error en conexión: ',err);
       });
+    });
 }
 
 module.exports={crear_backup};
