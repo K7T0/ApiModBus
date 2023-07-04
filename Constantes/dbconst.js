@@ -1,6 +1,6 @@
 module.exports = {
     host: 'localhost', 
-    user:'administrador', 
+    user:'root', 
     password: '@Ctinno.1',
     database: "TEST",
     connectionLimit: 5   

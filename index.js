@@ -21,9 +21,10 @@ for (var device of json.Consultas){
     var data=await modbusData.getData(json.ip_gateway, 0, 78, device.id, device.modelo);
     const JSONdata= JSON.parse(data);
     save.crear_backup(JSONdata);
+    // save.crear_backup();
+}
+}
 
-}
-}
 
 main();
 const interval= setInterval(main, 10000);

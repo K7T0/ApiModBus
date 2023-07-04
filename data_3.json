@@ -1,0 +1,8 @@
+{
+	"Consultas":[
+		{"id" : 1,"modelo":"POWYS3121"},
+        {"id" : 2,"modelo":"POWYS3121"}
+	],
+	"ip_gateway": "192.168.0.2"	
+
+}
