@@ -3,7 +3,6 @@ var modbus = require('modbus-stream');
 var trad= require('../traductores/tradDevice');
 
 const getData = (ip, address, quantity, unitId)=>{
-    var data=[];
     //genera promesa en espera a los datos
     return new Promise((resolve, reject)=>{
         //se conecta por modbus a la ip del gateway
@@ -22,8 +21,8 @@ const getData = (ip, address, quantity, unitId)=>{
                         }
                         else{
                             // console.log(res.response.data)
-                            data=trad.tradDevice(res.response.data, 'powys3121', unitId, address, quantity);
-                            resolve(data);
+                            const [json, curl]=trad.tradDevice(res.response.data, 'powys3121', unitId, address, quantity);
+                            resolve([json, curl]);
                         }
                 })
             }}

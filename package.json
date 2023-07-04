@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "mariadb": "^3.1.2",
-    "modbus-stream": "^0.46.0"
+    "modbus-stream": "^0.46.0",
+    "node-cmd": "^5.0.0"
   }
 }
