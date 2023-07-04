@@ -24,7 +24,7 @@ for (var device of json.Consultas){
     // console.log('JSONdata: ', JSONdata);
     // console.log('data_curl: ', data_curl);
     send.curl(data_curl);
-    // let backup= save.crear_backup(JSONdata);
+    let backup= save.crear_backup(JSONdata);
     // save.crear_backup();
 }
 }
