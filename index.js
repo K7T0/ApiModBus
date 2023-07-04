@@ -31,4 +31,4 @@ for (var device of json.Consultas){
 
 
 main();
-const interval= setInterval(main, 10000);
+const interval= setInterval(main, 60000);
