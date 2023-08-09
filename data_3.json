@@ -1,8 +1,9 @@
 {
 	"Consultas":[
-		{"id" : 1,"modelo":"POWYS3121"},
-        {"id" : 2,"modelo":"POWYS3121"}
+		{"id" : 1,"modelo":"powys3121"},
+		{"id" : 2,"modelo":"powys1120"},
+		{"id" : 3,"modelo":"inepromod1"}
 	],
-	"ip_gateway": "192.168.0.2"	
+	"ip_gateway": "10.10.11.253"	
 
 }

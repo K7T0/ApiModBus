@@ -1,5 +1,7 @@
 
 const powys3121 = require('./DeviceTable/POWYS3121');
+const inepromod1=require('./DeviceTable/INEPROMOD1');
+const powys1120=require('./DeviceTable/POWYS1120');
 const util = require('../getters/getFecha')
 
 const tradDevice = (data, device, id, address, quantity) =>{
@@ -352,6 +354,56 @@ const tradDevice = (data, device, id, address, quantity) =>{
             traducido= powys3121.get_alarmas(data);
             res += ',"alarma":'+ traducido[0]+'}';
             return res;
+        }
+    }
+    if(device == 'powys1120'){
+        if(address==0){
+            traducido= powys1120.get_primera_tabla(data);
+            json += ',"Voltaje":'+ traducido[0];
+            curl += " --form prom_voltaje_l_n=" + traducido[0];
+            json += ',"Corriente":'+ traducido[1];
+            curl += " --form prom_corriente=" + traducido[1];
+            json += ',"frecuencia":'+ traducido[2];
+            curl += " --form frecuencia=" + traducido[2];
+            json += ',"cosphi":'+ traducido[3];
+            curl += " --form coseno_F1=" + traducido[3];
+            json += ',"factor de potencia":'+ traducido[4];
+            curl += " --form factor_de_potencia=" + traducido[4];
+            json += ',"P_activa":'+ traducido[5];
+            curl += " --form porm_potencia_real=" + traducido[5];
+            json += ',"P_reactiva":'+ traducido[6];
+            curl += " --form prom_p_reactiva=" + traducido[6];
+            json += ',"P_aparente":'+ traducido[7];
+            curl += " --form prom_p_aparente=" + traducido[7];
+            json += ',"THDV":'+ traducido[8];
+            curl += " --form THDV_F1=" + traducido[8];
+            json += ',"THDI":'+ traducido[9]+'}';
+            curl += " --form THDI_F1=" + traducido[9];
+            return [json,curl];
+        }
+    }
+    if(device == 'inepromod1'){
+        if(address==0x5000){
+            traducido=inepromod1.get_primera_tabla(data);
+            json += ',"Voltaje":'+ traducido[0];
+            curl += " --form prom_voltaje_l_n=" + traducido[0];
+            json += ',"Voltaje L1":'+ traducido[1];
+            curl += " --form voltaje_l1_n=" + traducido[1];
+            json += ',"frecuencia":'+ traducido[2];
+            curl += " --form frecuencia=" + traducido[2];
+            json += ',"Corriente":'+ traducido[3];
+            curl += " --form prom_corriente=" + traducido[3];
+            json += ',"Corriente L1":'+ traducido[4];
+            curl += " --form corriente_l1=" + traducido[4];
+            json += ',"Potencia activa":'+ traducido[5];
+            curl += " --form porm_potencia_real=" + traducido[5];
+            json += ',"Potencia reactiva":'+ traducido[6];
+            curl += " --form prom_p_reactiva=" + traducido[6];
+            json += ',"Potencia aparente":'+ traducido[7];
+            curl += " --form prom_p_aparente=" + traducido[7];
+            json += ',"factor de potencia":'+ traducido[8]+'}';
+            curl += " --form factor_de_potencia=" + traducido[8];
+            return [json,curl];
         }
     }
 }
